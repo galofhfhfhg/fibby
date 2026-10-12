@@ -1,0 +1,469 @@
+/* fibby — лендинг. Базовые стили. Все цвета и шрифты — только из tokens.css */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fb-paper);
+  color: var(--fb-ink);
+  font-family: var(--fb-font);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg, canvas { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
+button { font: inherit; cursor: pointer; }
+a { color: var(--fb-brand); }
+
+/* плавный переход цвета вкуса ~400 мс */
+.tintable { transition: background-color .4s ease, color .4s ease, border-color .4s ease; }
+
+:focus-visible { outline: 3px solid var(--fb-accent); outline-offset: 2px; }
+.is-dark :focus-visible { outline-color: var(--fb-accent); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  padding: 12px 20px; background: var(--fb-accent); color: var(--fb-ink);
+  font-weight: 700; border-radius: 0 0 var(--fb-r-card) 0;
+}
+.skip-link:focus { left: 0; }
+
+/* ---------- сетка ---------- */
+
+.wrap {
+  max-width: var(--fb-max);
+  margin: 0 auto;
+  padding-left: var(--fb-gutter);
+  padding-right: var(--fb-gutter);
+}
+
+.section { padding: 72px 0; }
+.section--tight { padding: 56px 0; }
+
+@media (max-width: 720px) {
+  .section { padding: 52px 0; }
+  :root { --fb-gutter: 18px; }
+}
+
+/* ---------- типографика ---------- */
+
+.h1, .h2, .h3 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: var(--fb-tracking-display);
+  line-height: 1.0;
+}
+.h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: .98; }
+.h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); line-height: 1.02; letter-spacing: -0.045em; }
+.h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); letter-spacing: -0.035em; }
+
+.lead { margin: 0; font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.6; color: var(--fb-ink-muted); max-width: 34rem; }
+.is-dark .lead { color: rgba(255,255,255,.86); }
+
+.accent { color: var(--fb-accent); }
+.note { font-family: var(--fb-font-note); font-weight: 700; font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.1; }
+
+/* плашка-метка */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+  padding: 8px 14px; border-radius: var(--fb-r-pill);
+  background: var(--fb-eyebrow); color: var(--fb-brand);
+  font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--fb-brand); }
+.is-dark .eyebrow { background: rgba(255,255,255,.1); color: #fff; }
+.is-dark .eyebrow::before { background: var(--fb-accent); }
+
+/* ---------- кнопки ---------- */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 54px; padding: 0 28px; border: 0; border-radius: var(--fb-r-pill);
+  font-size: 16px; font-weight: 700; text-decoration: none; text-align: center;
+  transition: transform .15s ease, opacity .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn--accent { background: var(--fb-accent); color: var(--fb-ink); }
+.btn--brand { background: var(--fb-brand); color: #fff; }
+.btn--ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); min-height: 50px; }
+.btn--sm { min-height: 44px; padding: 0 22px; font-size: 15px; }
+.btn--block { width: 100%; }
+
+/* ---------- 1. бегущая строка ---------- */
+
+.marquee { overflow: hidden; }
+.marquee__track {
+  display: flex; width: max-content; gap: 40px; padding: 11px 0;
+  animation: fb-marquee 34s linear infinite;
+}
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__group { display: flex; gap: 40px; white-space: nowrap; }
+@keyframes fb-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.marquee--top {
+  background: var(--fb-brand-deep); color: #fff;
+  font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+.marquee--top .dot { color: var(--fb-accent); }
+
+.marquee--band {
+  background: var(--fb-brand); color: #fff;
+  font-size: clamp(14px, 1.6vw, 17px); font-weight: 700; letter-spacing: .02em;
+}
+.marquee--band .marquee__track { padding: 16px 0; }
+.marquee--band .dot { color: var(--fb-accent); }
+
+/* ---------- 2. шапка ---------- */
+
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--fb-line);
+}
+.header__inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-top: 14px; padding-bottom: 14px;
+}
+.header__nav { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; }
+.header__nav a { color: var(--fb-ink); text-decoration: none; }
+.header__nav a:hover { color: var(--fb-brand); }
+
+@media (max-width: 720px) {
+  .header__nav .header__link { display: none; }
+}
+
+/* логотип */
+.logo { display: inline-flex; align-items: flex-end; text-decoration: none; color: var(--fb-brand); }
+.logo__word { font-weight: 800; font-size: 30px; line-height: .85; letter-spacing: -0.075em; }
+.logo__cube {
+  width: 9px; height: 9px; border-radius: 3px; margin: 0 0 2px 3px;
+  background: var(--fb-accent); border: 1.5px solid var(--fb-brand);
+}
+.is-dark .logo { color: #fff; }
+.is-dark .logo__cube { background: var(--fb-accent); border-color: transparent; }
+
+/* ---------- 3. первый экран ---------- */
+
+.is-dark { background: var(--fb-brand); color: #fff; }
+
+.hero__inner {
+  display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 48px;
+  padding-top: 56px; padding-bottom: 64px;
+}
+.hero__copy { display: flex; flex-direction: column; gap: 22px; }
+.hero__ticks { display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.86); }
+.tick { display: inline-flex; align-items: center; gap: 8px; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.hero__visual { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+
+.pack-stage {
+  position: relative; width: 100%; max-width: 480px; aspect-ratio: 1 / 1;
+  border-radius: var(--fb-r-panel); background: var(--fb-brand-deep); overflow: hidden;
+}
+.pack-stage__glow {
+  position: absolute; left: 50%; top: 50%; width: 75%; aspect-ratio: 1;
+  transform: translate(-50%, -52%); border-radius: 50%;
+  background: var(--fb-tint); opacity: .16;
+}
+/* здесь на этапе 5 появится <canvas> с секвенцией кадров */
+.pack-stage__canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.pack-stage__hint {
+  position: absolute; right: 22px; bottom: 18px;
+  color: var(--fb-accent); transform: rotate(-5deg);
+}
+
+/* CSS-заглушка пачки */
+.pack {
+  position: absolute; left: 50%; top: 24%; width: 48%; aspect-ratio: 23 / 32;
+  transform: translateX(-50%);
+  border-radius: 10px 10px 28px 28px;
+  background: rgba(255,255,255,.22);
+  border: 2px solid rgba(255,255,255,.65);
+  box-shadow: 0 40px 50px -20px rgba(0,0,0,.55);
+  overflow: hidden;
+}
+.pack__face {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 61%;
+  padding: 16px; display: flex; flex-direction: column;
+  background: var(--fb-pack); color: var(--fb-brand);
+}
+.pack__logo { display: flex; align-items: flex-end; }
+.pack__logo .logo__word { font-size: clamp(32px, 4.4vw, 54px); }
+.pack__logo .logo__cube { width: 10px; height: 10px; background: var(--fb-brand); border: 0; margin: 0 0 5px 4px; }
+.pack__sub { font-size: 11px; font-weight: 700; margin-top: 6px; }
+.pack__badge { margin-top: auto; display: flex; align-items: center; gap: 10px; }
+.pack__badge b {
+  padding: 7px 12px; border-radius: var(--fb-r-pill);
+  background: var(--fb-brand); color: var(--fb-accent);
+  font-weight: 800; font-size: 18px; letter-spacing: -0.03em;
+}
+.pack__badge span { font-size: 11px; font-weight: 700; line-height: 1.2; }
+.pack__fill { position: absolute; inset: 0 0 61% 0; }
+.pack__fill .fb-cube { position: absolute; width: 17%; aspect-ratio: 1; opacity: .9; }
+
+/* кубики-декор */
+.cube-float { position: absolute; }
+
+/* переключатель вкуса */
+.flavors { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.flavor {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 18px; border-radius: var(--fb-r-pill);
+  background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.35);
+  font-size: 15px; font-weight: 700;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.flavor[aria-pressed="true"] { background: #fff; color: var(--fb-brand); border-color: #fff; }
+.flavor__dot { width: 12px; height: 12px; border-radius: 4px; }
+
+@media (max-width: 900px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 36px; padding-top: 40px; }
+}
+
+/* ---------- карточки ---------- */
+
+.card {
+  border: 1px solid var(--fb-line); border-radius: var(--fb-r-card);
+  background: var(--fb-paper); padding: 24px;
+}
+.card--plain { border: 0; background: var(--fb-ice); }
+.icon-box {
+  flex: 0 0 auto; width: 44px; height: 44px; border-radius: 13px;
+  display: grid; place-items: center; background: var(--fb-ice);
+}
+
+/* ---------- 5. как это работает ---------- */
+
+.split {
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center;
+}
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 32px; } }
+
+.stack { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+
+.feature { display: flex; gap: 14px; }
+.feature__title { font-weight: 700; }
+.feature__text { color: var(--fb-ink-muted); font-size: 15px; }
+
+.showcase {
+  border-radius: var(--fb-r-panel); background: var(--fb-pack); color: var(--fb-brand);
+  padding: 36px 28px; display: flex; flex-direction: column; align-items: center; gap: 22px;
+  text-align: center;
+}
+.showcase__cubes { display: flex; gap: 14px; }
+.showcase__cubes .fb-cube { width: 58px; height: 58px; }
+.showcase__caption { font-size: 13px; font-weight: 600; opacity: .75; }
+
+/* ---------- 6. твои моменты ---------- */
+
+.moments { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.moment { display: flex; flex-direction: column; gap: 10px; }
+.moment__ph {
+  aspect-ratio: 4 / 5; border-radius: var(--fb-r-card);
+  background: var(--fb-tint); border: 1px dashed var(--fb-seal);
+  display: grid; place-items: center; text-align: center; padding: 12px;
+  color: var(--fb-ink-muted); font-size: 13px; font-weight: 600;
+}
+.moment__label { font-weight: 700; font-size: 15px; }
+@media (max-width: 900px) { .moments { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- 7. читай этикетку ---------- */
+
+.tinted { background: var(--fb-tint); }
+
+.ingredients { width: 100%; display: flex; flex-direction: column; }
+.ingredients__row {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 14px 0; border-bottom: 1px solid var(--fb-seal); font-size: 15px;
+}
+.ingredients__row b { font-weight: 700; }
+
+.label-card {
+  background: var(--fb-paper); border: 3px solid var(--fb-ink);
+  border-radius: 18px; padding: 24px;
+}
+.label-card__title {
+  font-weight: 800; font-size: 1.5rem; letter-spacing: -0.04em;
+  padding-bottom: 10px; border-bottom: 8px solid var(--fb-ink);
+}
+.label-card__serving { font-size: 13px; font-weight: 600; color: var(--fb-ink-muted); padding: 10px 0; border-bottom: 3px solid var(--fb-ink); }
+.label-card__row {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 11px 0; border-bottom: 1px solid var(--fb-line); font-size: 15px;
+}
+.label-card__row--indent { padding-left: 18px; color: var(--fb-ink-muted); }
+.label-card__row--key { font-weight: 800; border-bottom: 8px solid var(--fb-ink); }
+.label-card__foot { font-size: 12px; color: var(--fb-ink-muted); padding-top: 12px; }
+
+/* ---------- 8. сравни ---------- */
+
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.compare { width: 100%; min-width: 620px; border-collapse: collapse; font-size: 15px; }
+.compare th, .compare td { padding: 16px 14px; text-align: center; }
+.compare thead th { font-size: 13px; font-weight: 700; color: var(--fb-ink-muted); }
+.compare tbody td, .compare tbody th { border-top: 1px solid var(--fb-line); }
+.compare .col-label { text-align: left; font-weight: 600; min-width: 190px; }
+.compare .col-fibby { background: var(--fb-tint); font-weight: 700; color: var(--fb-brand); }
+.compare thead .col-fibby { font-size: 17px; font-weight: 800; letter-spacing: -0.03em; color: var(--fb-brand); border-radius: 18px 18px 0 0; }
+.compare tbody tr:last-child .col-fibby { border-radius: 0 0 18px 18px; }
+
+/* ---------- 9. стандарты ---------- */
+
+.standards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.standard {
+  border-radius: var(--fb-r-card); padding: 22px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.standard__title { font-weight: 700; }
+.standard__text { font-size: 14px; color: rgba(255,255,255,.8); }
+@media (max-width: 900px) { .standards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .standards { grid-template-columns: 1fr; } }
+
+/* ---------- 10. видео блогеров ---------- */
+
+.is-ink { background: var(--fb-ink); color: #fff; }
+.is-ink .lead { color: rgba(255,255,255,.72); }
+.is-ink .eyebrow { background: rgba(255,255,255,.1); color: #fff; }
+.is-ink .eyebrow::before { background: var(--fb-accent); }
+
+.videos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.video-ph {
+  aspect-ratio: 9 / 16; border-radius: 20px;
+  background: rgba(255,255,255,.06); border: 1px dashed rgba(255,255,255,.22);
+  display: grid; place-items: center; text-align: center; padding: 12px;
+  color: rgba(255,255,255,.6); font-size: 13px; font-weight: 600;
+}
+@media (max-width: 900px) { .videos { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .videos { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- 11. выбери запас ---------- */
+
+.plans-head {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: 20px; margin-bottom: 28px;
+}
+.toggle {
+  display: inline-flex; padding: 5px; border-radius: var(--fb-r-pill);
+  background: var(--fb-paper); border: 1px solid var(--fb-line);
+}
+.toggle button {
+  min-height: 44px; padding: 0 18px; border: 0; border-radius: var(--fb-r-pill);
+  background: transparent; color: var(--fb-brand); font-size: 15px; font-weight: 700;
+  transition: background-color .2s ease, color .2s ease;
+}
+.toggle button[aria-pressed="true"] { background: var(--fb-brand); color: #fff; }
+
+.plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.plan {
+  border-radius: 28px; padding: 30px; background: var(--fb-paper); color: var(--fb-ink);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: background-color .25s ease, color .25s ease;
+}
+.plan__head { display: flex; align-items: center; gap: 10px; }
+.plan__name { font-weight: 800; font-size: 1.4rem; letter-spacing: -0.04em; }
+.plan__hit {
+  padding: 5px 11px; border-radius: var(--fb-r-pill);
+  background: var(--fb-accent); color: var(--fb-ink);
+  font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+}
+.plan__desc { font-size: 14px; color: var(--fb-ink-muted); }
+.plan__price { font-weight: 800; font-size: 2.1rem; letter-spacing: -0.045em; }
+.plan__mode { font-size: 13px; color: var(--fb-ink-muted); }
+.plan__btn { margin-top: 8px; }
+
+.plan[aria-current="true"] { background: var(--fb-brand); color: #fff; }
+.plan[aria-current="true"] .plan__desc,
+.plan[aria-current="true"] .plan__mode { color: rgba(255,255,255,.75); }
+
+@media (max-width: 720px) { .plans { grid-template-columns: 1fr; } }
+
+/* ---------- 12. вопросы ---------- */
+
+.faq { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+.faq__item { border: 1px solid var(--fb-line); border-radius: var(--fb-r-card); background: var(--fb-paper); overflow: hidden; }
+.faq__q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 22px; background: transparent; border: 0; text-align: left;
+  font-size: clamp(16px, 2vw, 18px); font-weight: 700; color: var(--fb-ink);
+}
+.faq__sign { flex: 0 0 auto; font-size: 24px; font-weight: 400; color: var(--fb-brand); }
+.faq__a { padding: 0 22px 22px; color: var(--fb-ink-muted); font-size: 15px; line-height: 1.6; max-width: 48rem; }
+.faq__item[data-open="false"] .faq__a { display: none; }
+
+/* ---------- 13. финальный призыв + форма ---------- */
+
+.cta__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+@media (max-width: 900px) { .cta__inner { grid-template-columns: 1fr; gap: 28px; } }
+
+.form { display: flex; flex-direction: column; gap: 14px; }
+.form__label { font-size: 14px; font-weight: 700; color: rgba(255,255,255,.86); }
+.form__row { display: flex; gap: 10px; flex-wrap: wrap; }
+.form__input {
+  flex: 1 1 240px; min-height: 54px; padding: 0 20px;
+  border-radius: var(--fb-r-pill); border: 2px solid rgba(255,255,255,.3);
+  background: rgba(255,255,255,.08); color: #fff; font: inherit; font-size: 16px;
+}
+.form__input::placeholder { color: rgba(255,255,255,.5); }
+.form__input:focus { border-color: var(--fb-accent); background: rgba(255,255,255,.12); }
+
+.consent { display: flex; gap: 10px; font-size: 13px; line-height: 1.45; color: rgba(255,255,255,.72); }
+.consent input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px; accent-color: var(--fb-accent); }
+.consent a { color: var(--fb-accent); }
+
+.form__summary { font-size: 13px; color: rgba(255,255,255,.6); }
+.form__error { font-size: 14px; font-weight: 600; color: var(--fb-accent); }
+
+.thanks {
+  border-radius: var(--fb-r-card); padding: 26px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  display: flex; flex-direction: column; gap: 12px; align-items: flex-start;
+}
+.thanks__title { font-weight: 800; font-size: 1.5rem; letter-spacing: -0.04em; }
+
+/* ---------- 14. подвал ---------- */
+
+.footer {
+  background: var(--fb-ink); color: rgba(255,255,255,.7);
+  font-size: 14px;
+}
+.footer__inner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;
+  padding-top: 28px; padding-bottom: 28px;
+}
+.footer__links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+.footer a:hover { color: #fff; }
+
+/* ---------- анимации появления (включает JS на этапе 4) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] { opacity: 0; transform: translateY(24px); }
+}
+
+/* плавающие кубики */
+@media (prefers-reduced-motion: no-preference) {
+  .cube-float { animation: fb-float 5s ease-in-out infinite; }
+  .pack { animation: fb-bob 7s ease-in-out infinite; }
+}
+@keyframes fb-float {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-12px) rotate(calc(var(--r, 0deg) + 8deg)); }
+}
+@keyframes fb-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-3deg); }
+  50% { transform: translateX(-50%) translateY(-16px) rotate(-1deg); }
+}
