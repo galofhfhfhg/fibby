@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>FIBBY v2 — линейка упаковки</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#16181A}a:hover{color:#000}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(var(--r,0deg))}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 980px; box-sizing: border-box; background: #EDEAE2; font-family: 'Onest', system-ui, sans-serif; color: #16181A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; position: relative; overflow: hidden">
+
+<div style="display: flex; align-items: flex-end; gap: 56px">
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+<div style="--r: -3deg; animation: bob 6s ease-in-out infinite; width: 360px; height: 620px; display: flex; flex-direction: column; filter: drop-shadow(0 40px 40px rgba(22,24,26,0.18))">
+<div style="height: 34px; background: #BCD993; border-radius: 16px 16px 0 0; border-bottom: 2px dashed rgba(22,24,26,0.15)"></div>
+<div style="flex-grow: 1; background: #CFE8A9; border-radius: 0 0 36px 36px; padding: 30px 30px 28px; display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.02em">мармелад с клетчаткой</div>
+<div style="display: flex; align-items: flex-end; margin-top: 18px"><div style="font-weight: 700; font-size: 96px; line-height: 0.85; letter-spacing: -0.07em">fibby</div><div style="width: 18px; height: 18px; border-radius: 6px; background: #16181A; margin: 0 0 8px 6px"></div></div>
+<div style="margin-top: auto; display: flex; align-items: baseline; gap: 10px"><div style="font-weight: 600; font-size: 72px; line-height: 1; letter-spacing: -0.05em">5 г</div><div style="font-size: 15px; font-weight: 500; line-height: 1.2">клетчатки<br>в порции</div></div>
+<div style="height: 1px; background: rgba(22,24,26,0.2); margin: 18px 0 14px"></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500"><div>зелёное яблоко</div><div>[__] г</div></div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+<div style="--r: 0deg; animation: bob 6s ease-in-out -2s infinite; width: 390px; height: 680px; display: flex; flex-direction: column; filter: drop-shadow(0 46px 44px rgba(22,24,26,0.2))">
+<div style="height: 36px; background: #EDB0BD; border-radius: 16px 16px 0 0; border-bottom: 2px dashed rgba(22,24,26,0.15)"></div>
+<div style="flex-grow: 1; background: #F7C6D0; border-radius: 0 0 38px 38px; padding: 32px 32px 30px; display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.02em">мармелад с клетчаткой</div>
+<div style="display: flex; align-items: flex-end; margin-top: 20px"><div style="font-weight: 700; font-size: 104px; line-height: 0.85; letter-spacing: -0.07em">fibby</div><div style="width: 20px; height: 20px; border-radius: 6px; background: #16181A; margin: 0 0 9px 6px"></div></div>
+<div style="margin-top: 22px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">
+<div>псиллиум (подорожник)</div>
+<div>без сахарных спиртов</div>
+</div>
+<div style="margin-top: auto; display: flex; align-items: baseline; gap: 10px"><div style="font-weight: 600; font-size: 78px; line-height: 1; letter-spacing: -0.05em">5 г</div><div style="font-size: 15px; font-weight: 500; line-height: 1.2">клетчатки<br>в порции</div></div>
+<div style="height: 1px; background: rgba(22,24,26,0.2); margin: 18px 0 14px"></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500"><div>малина</div><div>[__] г</div></div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+<div style="--r: 3deg; animation: bob 6s ease-in-out -4s infinite; width: 360px; height: 620px; display: flex; flex-direction: column; filter: drop-shadow(0 40px 40px rgba(22,24,26,0.18))">
+<div style="height: 34px; background: #F5C97F; border-radius: 16px 16px 0 0; border-bottom: 2px dashed rgba(22,24,26,0.15)"></div>
+<div style="flex-grow: 1; background: #FFD99E; border-radius: 0 0 36px 36px; padding: 30px 30px 28px; display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.02em">мармелад с клетчаткой</div>
+<div style="display: flex; align-items: flex-end; margin-top: 18px"><div style="font-weight: 700; font-size: 96px; line-height: 0.85; letter-spacing: -0.07em">fibby</div><div style="width: 18px; height: 18px; border-radius: 6px; background: #16181A; margin: 0 0 8px 6px"></div></div>
+<div style="margin-top: auto; display: flex; align-items: baseline; gap: 10px"><div style="font-weight: 600; font-size: 72px; line-height: 1; letter-spacing: -0.05em">5 г</div><div style="font-size: 15px; font-weight: 500; line-height: 1.2">клетчатки<br>в порции</div></div>
+<div style="height: 1px; background: rgba(22,24,26,0.2); margin: 18px 0 14px"></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500"><div>манго</div><div>[__] г</div></div>
+</div>
+</div>
+</div>
+
+</div>
+
+<div style="position: absolute; left: 150px; bottom: 120px; width: 46px; height: 46px; border-radius: 12px; background: #CFE8A9; transform: rotate(-14deg); box-shadow: inset -5px -7px 0 rgba(22,24,26,0.08), inset 5px 6px 0 rgba(255,255,255,0.6), 0 14px 18px -8px rgba(22,24,26,0.25)"></div>
+<div style="position: absolute; right: 170px; bottom: 150px; width: 40px; height: 40px; border-radius: 11px; background: #FFD99E; transform: rotate(18deg); box-shadow: inset -5px -7px 0 rgba(22,24,26,0.08), inset 5px 6px 0 rgba(255,255,255,0.6), 0 14px 18px -8px rgba(22,24,26,0.25)"></div>
+<div style="position: absolute; right: 250px; top: 110px; width: 34px; height: 34px; border-radius: 10px; background: #F7C6D0; transform: rotate(-24deg); box-shadow: inset -4px -6px 0 rgba(22,24,26,0.08), inset 4px 5px 0 rgba(255,255,255,0.6), 0 12px 16px -8px rgba(22,24,26,0.25)"></div>
+
+<div style="font-size: 14px; color: #55585C">Матовый дой-пак, цвет пакета = вкус. Форма мармелада — мягкий кубик (уточним с фабрикой).</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

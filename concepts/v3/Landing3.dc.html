@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>fibby v3 — мармелад с клетчаткой</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&amp;family=Caveat:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0F3B2E}a:hover{color:#16181A}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-16px) rotate(-1deg)}}
+@keyframes fall{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-12px) rotate(calc(var(--r,0deg) + 8deg))}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FFFFFF; color: #16181A; font-family: 'Onest', system-ui, sans-serif">
+
+<div style="background: #0A2C22; color: #FFFFFF; overflow: hidden; white-space: nowrap; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase">
+<div style="display: inline-flex; gap: 40px; padding: 11px 0; animation: marquee 30s linear infinite">
+<span>Предзаказ первой партии</span><span style="color: #D6F36B">•</span><span>Скидка предзаказчикам [−X%]</span><span style="color: #D6F36B">•</span><span>Доставка по России</span><span style="color: #D6F36B">•</span><span>Предзаказ первой партии</span><span style="color: #D6F36B">•</span><span>Скидка предзаказчикам [−X%]</span><span style="color: #D6F36B">•</span><span>Доставка по России</span><span style="color: #D6F36B">•</span>
+</div>
+</div>
+
+<nav style="background: #FFFFFF; border-bottom: 1px solid #E2E7E0">
+<div style="max-width: 1240px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<a href="#top" style="display: flex; align-items: flex-end; text-decoration: none; color: #0F3B2E"><span style="font-weight: 800; font-size: 32px; line-height: 0.85; letter-spacing: -0.075em">fibby</span><span style="width: 9px; height: 9px; border-radius: 3px; background: #D6F36B; border: 1.5px solid #0F3B2E; margin: 0 0 2px 3px; display: inline-block"></span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-size: 15px; font-weight: 600">
+<a href="#how" style="text-decoration: none; color: #16181A; padding: 12px 0">Как работает</a>
+<a href="#sostav" style="text-decoration: none; color: #16181A; padding: 12px 0">Состав</a>
+<a href="#faq" style="text-decoration: none; color: #16181A; padding: 12px 0">Вопросы</a>
+<a href="#price" style="text-decoration: none; padding: 12px 22px; border-radius: 999px; background: #D6F36B; color: #16181A; font-weight: 700">Предзаказ</a>
+</div>
+</div>
+</nav>
+
+<section id="top" style="background: #0F3B2E; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 56px 24px 64px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
+<div style="flex: 1 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.1); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase"><span style="width: 7px; height: 7px; border-radius: 50%; background: #D6F36B; display: inline-block"></span>Мармелад с клетчаткой</div>
+<h1 style="margin: 0; font-weight: 800; font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: 0.98; letter-spacing: -0.05em">Сытость дольше, чем <span style="color: #D6F36B">перекус.</span></h1>
+<p style="margin: 0; font-size: 1.15rem; line-height: 1.6; color: rgba(255,255,255,0.86); max-width: 33rem">5 г клетчатки из псиллиума в каждой порции. Кисло-сладкий вкус, мягкая текстура и никаких сахарных спиртов.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#price" style="text-decoration: none; padding: 17px 28px; border-radius: 999px; background: #D6F36B; color: #16181A; font-weight: 700; font-size: 16px">Оставить предзаказ</a>
+<a href="#how" style="text-decoration: none; padding: 15px 26px; border-radius: 999px; border: 2px solid rgba(255,255,255,0.5); color: #FFFFFF; font-weight: 700; font-size: 16px">Как это работает</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.86)">
+<div style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#D6F36B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>5 г клетчатки</div>
+<div style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#D6F36B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Без мальтита и сорбита</div>
+<div style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#D6F36B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Сделано в России</div>
+</div>
+</div>
+
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 18px">
+<div style="position: relative; width: 100%; max-width: 480px; height: 480px; border-radius: 32px; background: #0A2C22; overflow: hidden">
+<div style="position: absolute; left: 50%; top: 50%; width: 360px; height: 360px; margin: -170px 0 0 -180px; border-radius: 50%; background: {{t.tint}}; opacity: 0.16"></div>
+<div style="--r: -18deg; animation: fall 5s ease-in-out infinite; position: absolute; left: 22%; top: 48px; width: 44px; height: 44px; border-radius: 12px; background: {{t.cube}}; box-shadow: inset -5px -7px 0 rgba(15,59,46,0.12), inset 5px 6px 0 rgba(255,255,255,0.6), 0 16px 22px -10px rgba(0,0,0,0.5)"></div>
+<div style="--r: 24deg; animation: fall 5s ease-in-out -1.6s infinite; position: absolute; left: 52%; top: 26px; width: 38px; height: 38px; border-radius: 10px; background: {{t.cube}}; box-shadow: inset -5px -7px 0 rgba(15,59,46,0.12), inset 5px 6px 0 rgba(255,255,255,0.6), 0 16px 22px -10px rgba(0,0,0,0.5)"></div>
+<div style="--r: 6deg; animation: fall 5s ease-in-out -3.2s infinite; position: absolute; right: 18%; top: 70px; width: 34px; height: 34px; border-radius: 9px; background: {{t.cube}}; box-shadow: inset -4px -6px 0 rgba(15,59,46,0.12), inset 4px 5px 0 rgba(255,255,255,0.6), 0 16px 22px -10px rgba(0,0,0,0.5)"></div>
+<div style="position: absolute; left: 50%; top: 116px; width: 230px; height: 320px; margin-left: -115px; animation: bob 7s ease-in-out infinite; border-radius: 10px 10px 28px 28px; background: rgba(255,255,255,0.22); border: 2px solid rgba(255,255,255,0.65); box-shadow: 0 40px 50px -20px rgba(0,0,0,0.55); overflow: hidden">
+<div style="position: absolute; left: 20px; top: 30px; width: 38px; height: 38px; border-radius: 10px; background: {{t.cube}}; transform: rotate(14deg); opacity: 0.9"></div>
+<div style="position: absolute; left: 86px; top: 18px; width: 38px; height: 38px; border-radius: 10px; background: {{t.cube}}; transform: rotate(-20deg); opacity: 0.9"></div>
+<div style="position: absolute; right: 24px; top: 34px; width: 38px; height: 38px; border-radius: 10px; background: {{t.cube}}; transform: rotate(28deg); opacity: 0.9"></div>
+<div style="position: absolute; left: 50px; top: 70px; width: 38px; height: 38px; border-radius: 10px; background: {{t.cube}}; transform: rotate(-6deg); opacity: 0.9"></div>
+<div style="position: absolute; right: 56px; top: 78px; width: 38px; height: 38px; border-radius: 10px; background: {{t.cube}}; transform: rotate(16deg); opacity: 0.9"></div>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; height: 196px; background: {{t.pack}}; padding: 18px; box-sizing: border-box; display: flex; flex-direction: column; color: #0F3B2E">
+<div style="display: flex; align-items: flex-end"><span style="font-weight: 800; font-size: 54px; line-height: 0.85; letter-spacing: -0.075em">fibby</span><span style="width: 10px; height: 10px; border-radius: 3px; background: #0F3B2E; margin: 0 0 5px 4px; display: inline-block"></span></div>
+<div style="font-size: 11px; font-weight: 700; margin-top: 6px">мармелад с клетчаткой · {{t.name}}</div>
+<div style="margin-top: auto; display: flex; align-items: center; gap: 10px"><span style="padding: 7px 12px; border-radius: 999px; background: #0F3B2E; color: #D6F36B; font-weight: 800; font-size: 18px; letter-spacing: -0.03em">5 г</span><span style="font-size: 11px; font-weight: 700; line-height: 1.2">клетчатки<br>в порции</span></div>
+</div>
+</div>
+<div style="position: absolute; right: 22px; bottom: 22px; font-family: 'Caveat', cursive; font-weight: 700; font-size: 24px; color: #D6F36B; transform: rotate(-5deg)">переключи вкус ↓</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px" role="group" aria-label="Вкус">
+<sc-for list="{{ flavors }}" as="f" hint-placeholder-count="3">
+<button type="button" onClick="{{ f.pick }}" style="{{ f.chipStyle }}"><span style="{{ f.dotStyle }}"></span>{{ f.label }}</button>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<div style="background: #0A2C22; color: rgba(255,255,255,0.9); overflow: hidden; white-space: nowrap; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">
+<div style="display: inline-flex; gap: 48px; padding: 16px 0; animation: marquee 36s linear infinite">
+<span>Псиллиум из подорожника</span><span>Без сахарных спиртов</span><span>Честный знак</span><span>Начни с одной порции</span><span>Псиллиум из подорожника</span><span>Без сахарных спиртов</span><span>Честный знак</span><span>Начни с одной порции</span>
+</div>
+</div>
+
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
+
+<section id="how" style="padding: 88px 0 56px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: #E3ECDD; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #0F3B2E"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F3B2E; display: inline-block"></span>КАК ЭТО РАБОТАЕТ</div>
+<h2 style="margin: 0; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.045em">Клетчатка, которую хочется есть.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #4A524D; max-width: 32rem">16:00, до ужина далеко, рука тянется к печенью. Две-три мармеладки fibby — и есть 5 г клетчатки вместо пустого сахара.</p>
+<div style="display: flex; flex-direction: column; gap: 14px; padding-top: 4px">
+<div style="display: flex; gap: 14px; align-items: flex-start"><div style="width: 44px; height: 44px; border-radius: 12px; background: #F3F6F1; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="#0F3B2E" stroke-width="2"></circle><path d="M8 12h8M12 8v8" fill="none" stroke="#0F3B2E" stroke-width="2" stroke-linecap="round"></path></svg></div><div><div style="font-weight: 700; font-size: 17px">Набухает</div><div style="font-size: 15px; color: #4A524D; line-height: 1.5">Псиллиум впитывает воду и даёт объём — отсюда сытость.</div></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><div style="width: 44px; height: 44px; border-radius: 12px; background: #F3F6F1; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="#0F3B2E" stroke-width="2" stroke-linecap="round"></path></svg></div><div><div style="font-weight: 700; font-size: 17px">Без сахарных спиртов</div><div style="font-size: 15px; color: #4A524D; line-height: 1.5">Мальтит и сорбит часто дают дискомфорт. У нас их нет.</div></div></div>
+<div style="display: flex; gap: 14px; align-items: flex-start"><div style="width: 44px; height: 44px; border-radius: 12px; background: #F3F6F1; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="12" height="16" rx="3" fill="none" stroke="#0F3B2E" stroke-width="2"></rect><path d="M9 9h6" fill="none" stroke="#0F3B2E" stroke-width="2" stroke-linecap="round"></path></svg></div><div><div style="font-weight: 700; font-size: 17px">Без шейкера и порошка</div><div style="font-size: 15px; color: #4A524D; line-height: 1.5">Пачка в кармане, порция — когда нужно.</div></div></div>
+</div>
+</div>
+<div style="flex: 1 1 400px; min-width: 0; height: 440px; border-radius: 28px; background: {{t.tint}}; border: 1px solid #E2E7E0; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center">
+<div style="position: absolute; left: 26px; top: 22px; font-family: 'Caveat', cursive; font-weight: 700; font-size: 26px; color: #0F3B2E; transform: rotate(-4deg)">вот так выглядит 5 г →</div>
+<div style="display: grid; grid-template-columns: repeat(3, 64px); gap: 14px; transform: rotate(-6deg)">
+<div style="width: 64px; height: 64px; border-radius: 16px; background: {{t.cube}}; box-shadow: inset -6px -8px 0 rgba(15,59,46,0.1), inset 6px 7px 0 rgba(255,255,255,0.6), 0 18px 24px -12px rgba(15,59,46,0.35)"></div>
+<div style="width: 64px; height: 64px; border-radius: 16px; background: {{t.cube}}; box-shadow: inset -6px -8px 0 rgba(15,59,46,0.1), inset 6px 7px 0 rgba(255,255,255,0.6), 0 18px 24px -12px rgba(15,59,46,0.35)"></div>
+<div style="width: 64px; height: 64px; border-radius: 16px; background: {{t.cube}}; box-shadow: inset -6px -8px 0 rgba(15,59,46,0.1), inset 6px 7px 0 rgba(255,255,255,0.6), 0 18px 24px -12px rgba(15,59,46,0.35)"></div>
+</div>
+<div style="position: absolute; right: 24px; bottom: 22px; font-size: 13px; color: #4A524D">[кол-во штук в порции — после тестовой партии]</div>
+</div>
+</section>
+
+<section style="padding: 56px 0; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+<div style="display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: #E3ECDD; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #0F3B2E"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F3B2E; display: inline-block"></span>ТВОИ МОМЕНТЫ</div>
+<h2 style="margin: 0; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.045em">Когда тянет перекусить.</h2>
+<p style="margin: 0; font-size: 17px; color: #4A524D">Разные дни, одна пачка в кармане.</p>
+<div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; padding-top: 18px; text-align: left">
+<div style="border-radius: 24px; border: 1px solid #E2E7E0; overflow: hidden"><div style="height: 260px; background: #F3F6F1; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #4A524D">[фото: офис, 16:00]</div><div style="padding: 16px 18px; font-weight: 700">Офис, 16:00</div></div>
+<div style="border-radius: 24px; border: 1px solid #E2E7E0; overflow: hidden"><div style="height: 260px; background: #F3F6F1; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #4A524D">[фото: зал]</div><div style="padding: 16px 18px; font-weight: 700">После тренировки</div></div>
+<div style="border-radius: 24px; border: 1px solid #E2E7E0; overflow: hidden"><div style="height: 260px; background: #F3F6F1; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #4A524D">[фото: учёба]</div><div style="padding: 16px 18px; font-weight: 700">Сессия и пары</div></div>
+<div style="border-radius: 24px; border: 1px solid #E2E7E0; overflow: hidden"><div style="height: 260px; background: #F3F6F1; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #4A524D">[фото: вечер]</div><div style="padding: 16px 18px; font-weight: 700">Вечер, сериал</div></div>
+</div>
+</section>
+</div>
+
+<section id="sostav" style="background: {{t.tint}}">
+<div style="max-width: 1240px; margin: 0 auto; padding: 80px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #0F3B2E"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F3B2E; display: inline-block"></span>ЧИТАЙ ЭТИКЕТКУ</div>
+<h2 style="margin: 0; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.045em">Обычный мармелад не пишет, сколько в нём клетчатки. Мы пишем.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3A423D; max-width: 30rem">Каждая порция — посчитанная доза, а не «примерно». Цифра клетчатки — крупно на лицевой стороне пачки.</p>
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 30rem">
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 16px 20px; border-radius: 16px; background: #FFFFFF"><span style="font-weight: 700">Псиллиум</span><span>5 г клетчатки</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 16px 20px; border-radius: 16px; background: #FFFFFF"><span style="font-weight: 700">Фруктовое пюре</span><span>[__] %</span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 16px 20px; border-radius: 16px; background: #FFFFFF"><span style="font-weight: 700">Подсластитель</span><span>[уточнить с фабрикой]</span></div>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; border: 2px solid #16181A; border-radius: 20px; background: #FFFFFF; padding: 24px 26px; display: flex; flex-direction: column">
+<div style="font-weight: 800; font-size: 26px; letter-spacing: -0.03em">Пищевая ценность</div>
+<div style="font-size: 14px; color: #4A524D; padding: 6px 0 12px; border-bottom: 8px solid #16181A">Порция: [__] шт ([__] г) · в пачке [__] порций</div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #CFD6CC; font-weight: 700"><span>Энергетическая ценность</span><span>[__] ккал</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #CFD6CC"><span>Белки</span><span>[__] г</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #CFD6CC"><span>Жиры</span><span>[__] г</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #CFD6CC"><span>Углеводы</span><span>[__] г</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0 10px 20px; border-bottom: 1px solid #CFD6CC"><span>в т. ч. сахара</span><span>[__] г</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 8px solid #16181A; font-weight: 800"><span>Пищевые волокна</span><span>5 г</span></div>
+<div style="font-size: 13px; line-height: 1.5; color: #4A524D; padding-top: 12px">Состав: [после тестовой партии]. Запивай водой. Начни с одной порции.</div>
+</div>
+</div>
+</section>
+
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
+<section style="padding: 80px 0 64px; display: flex; flex-direction: column; gap: 26px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: #E3ECDD; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #0F3B2E"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F3B2E; display: inline-block"></span>СРАВНИ</div>
+<h2 style="margin: 0; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.045em">Почему не порошок?</h2>
+<div style="overflow-x: auto; border-radius: 22px; border: 1px solid #E2E7E0">
+<table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 15px">
+<thead><tr>
+<th style="text-align: left; padding: 18px 22px"></th>
+<th style="text-align: center; padding: 18px 22px; background: #0F3B2E; color: #FFFFFF; font-weight: 800">fibby</th>
+<th style="text-align: center; padding: 18px 22px; font-weight: 700">Псиллиум-порошок</th>
+<th style="text-align: center; padding: 18px 22px; font-weight: 700">Капсулы</th>
+<th style="text-align: center; padding: 18px 22px; font-weight: 700">Обычный мармелад</th>
+</tr></thead>
+<tbody>
+<tr style="border-top: 1px solid #E2E7E0"><td style="padding: 16px 22px; font-weight: 700">Клетчатка в порции</td><td style="padding: 16px 22px; text-align: center; background: #EEF3EC; font-weight: 800; color: #0F3B2E">5 г</td><td style="padding: 16px 22px; text-align: center; color: #4A524D">5 г</td><td style="padding: 16px 22px; text-align: center; color: #4A524D">горсть капсул</td><td style="padding: 16px 22px; text-align: center; color: #4A524D">почти 0</td></tr>
+<tr style="border-top: 1px solid #E2E7E0"><td style="padding: 16px 22px; font-weight: 700">Вкусно</td><td style="padding: 16px 22px; text-align: center; background: #EEF3EC"><svg width="20" height="20" viewBox="0 0 24 24" role="img" aria-label="да"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#0F3B2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></td><td style="padding: 16px 22px; text-align: center"><svg width="18" height="18" viewBox="0 0 24 24" role="img" aria-label="нет"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="#9AA39D" stroke-width="2.2" stroke-linecap="round"></path></svg></td><td style="padding: 16px 22px; text-align: center; color: #4A524D">—</td><td style="padding: 16px 22px; text-align: center"><svg width="20" height="20" viewBox="0 0 24 24" role="img" aria-label="да"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#0F3B2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></td></tr>
+<tr style="border-top: 1px solid #E2E7E0"><td style="padding: 16px 22px; font-weight: 700">Без воды и шейкера</td><td style="padding: 16px 22px; text-align: center; background: #EEF3EC"><svg width="20" height="20" viewBox="0 0 24 24" role="img" aria-label="да"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#0F3B2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></td><td style="padding: 16px 22px; text-align: center"><svg width="18" height="18" viewBox="0 0 24 24" role="img" aria-label="нет"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="#9AA39D" stroke-width="2.2" stroke-linecap="round"></path></svg></td><td style="padding: 16px 22px; text-align: center"><svg width="18" height="18" viewBox="0 0 24 24" role="img" aria-label="нет"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="#9AA39D" stroke-width="2.2" stroke-linecap="round"></path></svg></td><td style="padding: 16px 22px; text-align: center"><svg width="20" height="20" viewBox="0 0 24 24" role="img" aria-label="да"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#0F3B2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></td></tr>
+<tr style="border-top: 1px solid #E2E7E0"><td style="padding: 16px 22px; font-weight: 700">Без сахарных спиртов</td><td style="padding: 16px 22px; text-align: center; background: #EEF3EC"><svg width="20" height="20" viewBox="0 0 24 24" role="img" aria-label="да"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#0F3B2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></td><td style="padding: 16px 22px; text-align: center"><svg width="20" height="20" viewBox="0 0 24 24" role="img" aria-label="да"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#0F3B2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></td><td style="padding: 16px 22px; text-align: center"><svg width="20" height="20" viewBox="0 0 24 24" role="img" aria-label="да"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#0F3B2E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></td><td style="padding: 16px 22px; text-align: center; color: #4A524D">зависит</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+
+<section style="background: #0F3B2E; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: rgba(255,255,255,0.1); font-size: 12px; font-weight: 700; letter-spacing: 0.08em"><span style="width: 6px; height: 6px; border-radius: 50%; background: #D6F36B; display: inline-block"></span>СТАНДАРТЫ</div>
+<h2 style="margin: 0; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.045em; max-width: 44rem">Сделано по правилам, а не <span style="color: #D6F36B">«на глаз».</span></h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px">
+<div style="border-radius: 22px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); padding: 24px; display: flex; flex-direction: column; gap: 10px"><div style="font-weight: 800; font-size: 19px">Декларация соответствия</div><div style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.82)">Пищевой продукт по ТР ТС 021/2011.</div></div>
+<div style="border-radius: 22px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); padding: 24px; display: flex; flex-direction: column; gap: 10px"><div style="font-weight: 800; font-size: 19px">«Честный знак»</div><div style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.82)">Каждая пачка с кодом — проверяется в приложении.</div></div>
+<div style="border-radius: 22px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); padding: 24px; display: flex; flex-direction: column; gap: 10px"><div style="font-weight: 800; font-size: 19px">Цифры на лицевой стороне</div><div style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.82)">Клетчатка крупно, а не мелким шрифтом на обороте.</div></div>
+<div style="border-radius: 22px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); padding: 24px; display: flex; flex-direction: column; gap: 10px"><div style="font-weight: 800; font-size: 19px">Без мальтита и сорбита</div><div style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.82)">Только то, что не спорит с клетчаткой.</div></div>
+</div>
+</div>
+</section>
+
+<section style="background: #16181A; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; align-items: center; gap: 24px">
+<div style="display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: rgba(255,255,255,0.08); font-size: 12px; font-weight: 700; letter-spacing: 0.08em"><span style="width: 6px; height: 6px; border-radius: 50%; background: #D6F36B; display: inline-block"></span>@FIBBY</div>
+<h2 style="margin: 0; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.045em; text-align: center">Не читай отзывы. Смотри.</h2>
+<div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+<div style="aspect-ratio: 9 / 16; border-radius: 20px; background: #24272A; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #A9AFAB">[видео блогера]</div>
+<div style="aspect-ratio: 9 / 16; border-radius: 20px; background: #24272A; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #A9AFAB">[видео блогера]</div>
+<div style="aspect-ratio: 9 / 16; border-radius: 20px; background: #24272A; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #A9AFAB">[видео блогера]</div>
+<div style="aspect-ratio: 9 / 16; border-radius: 20px; background: #24272A; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #A9AFAB">[видео блогера]</div>
+<div style="aspect-ratio: 9 / 16; border-radius: 20px; background: #24272A; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #A9AFAB">[видео блогера]</div>
+</div>
+</div>
+</section>
+
+<section id="price" style="background: {{t.tint}}">
+<div style="max-width: 1240px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: rgba(255,255,255,0.7); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #0F3B2E"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F3B2E; display: inline-block"></span>ПРЕДЗАКАЗ</div>
+<h2 style="margin: 0; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.045em">Выбери запас.</h2>
+</div>
+<div style="display: inline-flex; padding: 5px; border-radius: 999px; background: #FFFFFF" role="group" aria-label="Тип покупки">
+<button type="button" onClick="{{ pickSub }}" style="{{ subBtn }}">Подписка [−X%]</button>
+<button type="button" onClick="{{ pickOnce }}" style="{{ onceBtn }}">Разово</button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<sc-for list="{{ plans }}" as="plan" hint-placeholder-count="2">
+<div style="{{ plan.cardStyle }}">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<div style="font-weight: 800; font-size: 24px; letter-spacing: -0.03em">{{ plan.name }}</div>
+<sc-if value="{{ plan.hit }}" hint-placeholder-val="{{ false }}"><div style="padding: 6px 12px; border-radius: 999px; background: #D6F36B; color: #16181A; font-size: 13px; font-weight: 700">Хит</div></sc-if>
+</div>
+<div style="font-size: 15px; opacity: 0.8">{{ plan.desc }}</div>
+<div style="font-weight: 800; font-size: 48px; letter-spacing: -0.045em; line-height: 1">{{ plan.price }}</div>
+<div style="font-size: 14px; opacity: 0.8">{{ mode }}</div>
+<button type="button" onClick="{{ plan.pick }}" style="{{ plan.btnStyle }}">{{ plan.btnLabel }}</button>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
+<section id="faq" style="padding: 80px 0; display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: #E3ECDD; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #0F3B2E"><span style="width: 6px; height: 6px; border-radius: 50%; background: #0F3B2E; display: inline-block"></span>ВОПРОСЫ</div>
+<h2 style="margin: 0; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.02; letter-spacing: -0.045em">Прямые ответы.</h2>
+</div>
+<div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column">
+<sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+<div style="border-top: 1px solid #E2E7E0">
+<button type="button" onClick="{{ f.toggle }}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; background: none; border: 0; font: inherit; font-size: 18px; font-weight: 700; color: #16181A; text-align: left; cursor: pointer">
+<span>{{ f.q }}</span><span style="width: 32px; height: 32px; border-radius: 50%; background: #F3F6F1; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0">{{ f.sign }}</span>
+</button>
+<sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 0 0 22px; font-size: 16px; line-height: 1.6; color: #4A524D; max-width: 40rem">{{ f.a }}</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+</div>
+
+<section style="background: #0F3B2E; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 80px 24px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="font-weight: 800; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 0.98; letter-spacing: -0.05em">Перекус, который <span style="color: #D6F36B">работает.</span></div>
+<div style="font-size: 17px; color: rgba(255,255,255,0.86)">Оставь контакт — напишем, когда первая партия будет готова. Без предоплаты.</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0">
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="lead3" style="font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.86)">E-mail или Telegram</label>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<input id="lead3" type="text" placeholder="@username или почта" value="{{ lead }}" onChange="{{ onLead }}" style="flex: 1 1 220px; min-width: 0; height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; border: 0; background: #FFFFFF; font: inherit; font-size: 16px; color: #16181A">
+<button type="button" onClick="{{ submit }}" style="height: 56px; padding: 0 28px; border-radius: 999px; border: 0; background: #D6F36B; color: #16181A; font: inherit; font-weight: 700; font-size: 16px; cursor: pointer">Хочу первым</button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 20px 24px; border-radius: 20px; background: #D6F36B; color: #16181A; font-weight: 700; font-size: 17px">Готово — ты в списке первой партии.</div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<footer style="max-width: 1240px; margin: 0 auto; padding: 28px 24px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; color: #4A524D">
+<div>© fibby, 2026 · ИП [ФИО], ИНН [__]</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px"><a href="#top">Политика конфиденциальности</a><a href="#top">Оферта</a><a href="#top">Telegram</a></div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6200}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { flavor: 'apple', sub: true, plan: '3', open: 0, lead: '', sent: false };
+}
+renderVals() {
+const s = this.state;
+const themes = {
+apple: { name: 'зелёное яблоко', label: 'Яблоко', pack: '#CFE8A9', cube: '#B9DE7E', tint: '#EEF5E3' },
+raspberry: { name: 'малина', label: 'Малина', pack: '#F7C6D0', cube: '#F19AAE', tint: '#FBEDF0' },
+mango: { name: 'манго', label: 'Манго', pack: '#FFD99E', cube: '#FFC56B', tint: '#FFF4E2' }
+};
+const t = themes[s.flavor];
+const flavors = Object.keys(themes).map((k) => {
+const sel = s.flavor === k;
+return {
+label: themes[k].label,
+pick: () => this.setState({ flavor: k }),
+chipStyle: 'display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; ' + (sel ? 'background: #FFFFFF; color: #0F3B2E; border: 2px solid #FFFFFF;' : 'background: transparent; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.35);'),
+dotStyle: 'width: 12px; height: 12px; border-radius: 4px; display: inline-block; background: ' + themes[k].cube + ';'
+};
+});
+const pill = 'min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; ';
+const on = pill + 'background: #0F3B2E; color: #FFFFFF;';
+const off = pill + 'background: transparent; color: #0F3B2E;';
+const planDefs = [
+{ id: '1', name: '1 пачка', desc: '[__] порций · один вкус', price: '[__] ₽', hit: false },
+{ id: '3', name: '3 пачки', desc: '[__] порций · яблоко, малина, манго', price: '[__] ₽', hit: true }
+];
+const plans = planDefs.map((p) => {
+const sel = s.plan === p.id;
+return Object.assign({}, p, {
+cardStyle: 'border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 14px; ' + (sel ? 'background: #0F3B2E; color: #FFFFFF;' : 'background: #FFFFFF; color: #16181A;'),
+btnStyle: 'margin-top: 8px; min-height: 54px; border-radius: 999px; border: 0; font: inherit; font-weight: 700; font-size: 16px; cursor: pointer; ' + (sel ? 'background: #D6F36B; color: #16181A;' : 'background: #0F3B2E; color: #FFFFFF;'),
+btnLabel: sel ? 'Выбрано · оформить предзаказ' : 'Выбрать',
+pick: () => this.setState({ plan: p.id })
+});
+});
+const faqDefs = [
+{ q: 'Что такое псиллиум?', a: 'Оболочка семян подорожника — растворимая клетчатка, которая набухает в воде. Её давно продают в аптеках и магазинах здорового питания в виде порошка.' },
+{ q: 'Сколько можно в день?', a: 'Начни с одной порции и запивай водой. Точную рекомендацию укажем на упаковке после согласования рецептуры с технологом.' },
+{ q: 'Не будет вздутия?', a: 'Мы не используем мальтит и сорбит — частую причину дискомфорта в сладостях без сахара. Клетчатку лучше добавлять постепенно, поэтому советуем начинать с одной порции.' },
+{ q: 'Это БАД?', a: 'Нет, это мармелад — пищевой продукт с декларацией соответствия. [Финальный статус подтвердим после запуска производства.]' },
+{ q: 'Когда доставка?', a: 'Первая партия — [месяц]. Предзаказчики получают её первыми и со скидкой.' }
+];
+const faqs = faqDefs.map((f, i) => Object.assign({}, f, {
+open: s.open === i,
+sign: s.open === i ? '−' : '+',
+toggle: () => this.setState({ open: s.open === i ? -1 : i })
+}));
+return {
+t: t,
+flavors: flavors,
+subBtn: s.sub ? on : off,
+onceBtn: s.sub ? off : on,
+pickSub: () => this.setState({ sub: true }),
+pickOnce: () => this.setState({ sub: false }),
+mode: s.sub ? 'по подписке, раз в месяц · отмена в любой момент' : 'разовая покупка',
+plans: plans,
+faqs: faqs,
+lead: s.lead,
+sent: s.sent,
+notSent: !s.sent,
+onLead: (e) => this.setState({ lead: e.target.value }),
+submit: () => { if (s.lead.trim()) this.setState({ sent: true }); }
+};
+}
+}
+</script>
+</body>
+</html>

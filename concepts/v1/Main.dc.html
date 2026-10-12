@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>FIBBY — бренд-борд</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&amp;family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2B1A4A}a:hover{color:#000}
+</style>
+</helmet>
+<div style="width: 1440px; height: 980px; box-sizing: border-box; padding: 56px 64px; background: #FBF7EE; color: {{ink}}; font-family: 'Manrope', system-ui, sans-serif; display: flex; flex-direction: column; gap: 36px">
+
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 0.02em">FIBBY · бренд-борд</div>
+<div style="font-size: 15px; font-weight: 600; opacity: 0.75">Концепт v1 · октябрь 2026</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+<div style="height: 300px; border-radius: 28px; background: {{ink}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px">
+<div style="display: flex; align-items: center; gap: 14px">
+<svg width="74" height="74" viewBox="0 0 74 74" aria-hidden="true"><path d="M37 5c17 0 31 11 31 29 0 20-14 35-31 35S6 54 6 34C6 16 20 5 37 5z" fill="{{accent}}"></path><path d="M14 40c6-7 11-7 16 0s11 7 16 0 10-7 15 0" fill="none" stroke="{{ink}}" stroke-width="5" stroke-linecap="round"></path></svg>
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 84px; line-height: 1; letter-spacing: -0.04em; color: {{accent}}">fibby</div>
+</div>
+<div style="font-size: 14px; font-weight: 600; color: #FBF7EE; opacity: 0.8; letter-spacing: 0.14em; text-transform: uppercase">Основной · на тёмном</div>
+</div>
+<div style="height: 300px; border-radius: 28px; background: {{accent}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px">
+<div style="display: flex; align-items: center; gap: 14px">
+<svg width="74" height="74" viewBox="0 0 74 74" aria-hidden="true"><path d="M37 5c17 0 31 11 31 29 0 20-14 35-31 35S6 54 6 34C6 16 20 5 37 5z" fill="{{ink}}"></path><path d="M14 40c6-7 11-7 16 0s11 7 16 0 10-7 15 0" fill="none" stroke="{{accent}}" stroke-width="5" stroke-linecap="round"></path></svg>
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 84px; line-height: 1; letter-spacing: -0.04em; color: {{ink}}">fibby</div>
+</div>
+<div style="font-size: 14px; font-weight: 700; color: {{ink}}; letter-spacing: 0.14em; text-transform: uppercase">Инверсия · на лайме</div>
+</div>
+<div style="height: 300px; border-radius: 28px; background: #FFFFFF; border: 2px solid #E9E2D2; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 80px; line-height: 1; letter-spacing: -0.04em; color: {{ink}}">фибби</div>
+<div style="display: flex; align-items: center; gap: 10px">
+<svg width="40" height="40" viewBox="0 0 74 74" aria-hidden="true"><path d="M37 5c17 0 31 11 31 29 0 20-14 35-31 35S6 54 6 34C6 16 20 5 37 5z" fill="{{ink}}"></path><path d="M14 40c6-7 11-7 16 0s11 7 16 0 10-7 15 0" fill="none" stroke="{{accent}}" stroke-width="6" stroke-linecap="round"></path></svg>
+<div style="font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Кириллица · знак-капля</div>
+</div>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+<div style="grid-column: span 7; display: flex; flex-direction: column; gap: 16px">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 18px">Палитра</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="height: 120px; border-radius: 20px; background: {{accent}}"></div>
+<div style="font-weight: 800; font-size: 15px">Кислый лайм</div>
+<div style="font-size: 13px; line-height: 1.4">#C6F432 · главный акцент, логотип, кнопки</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="height: 120px; border-radius: 20px; background: {{ink}}"></div>
+<div style="font-weight: 800; font-size: 15px">Ночной фиолет</div>
+<div style="font-size: 13px; line-height: 1.4">#2B1A4A · фон упаковки, текст</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="height: 120px; border-radius: 20px; background: #FFFFFF; border: 2px solid #E9E2D2; box-sizing: border-box"></div>
+<div style="font-weight: 800; font-size: 15px">Молоко</div>
+<div style="font-size: 13px; line-height: 1.4">#FBF7EE · фон сайта, воздух</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="height: 120px; border-radius: 20px; background: #B79CFF"></div>
+<div style="font-weight: 800; font-size: 15px">Лаванда</div>
+<div style="font-size: 13px; line-height: 1.4">#B79CFF · второстепенный, плашки</div>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 12px; margin-top: 6px">
+<div style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase">Маркеры вкусов</div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 2px solid #E9E2D2"><div style="width: 16px; height: 16px; border-radius: 50%; background: #C6F432; border: 1.5px solid #2B1A4A"></div><div style="font-size: 13px; font-weight: 700">Зелёное яблоко</div></div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 2px solid #E9E2D2"><div style="width: 16px; height: 16px; border-radius: 50%; background: #FF4F7B"></div><div style="font-size: 13px; font-weight: 700">Малина</div></div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 2px solid #E9E2D2"><div style="width: 16px; height: 16px; border-radius: 50%; background: #FFB21F"></div><div style="font-size: 13px; font-weight: 700">Манго-маракуйя</div></div>
+</div>
+</div>
+
+<div style="grid-column: span 5; display: flex; flex-direction: column; gap: 16px">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 18px">Шрифты и голос</div>
+<div style="display: flex; gap: 14px">
+<div style="flex: 1; border-radius: 20px; background: #FFFFFF; border: 2px solid #E9E2D2; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 44px; line-height: 1">Аа</div>
+<div style="font-size: 13px; font-weight: 700">Unbounded · заголовки</div>
+</div>
+<div style="flex: 1; border-radius: 20px; background: #FFFFFF; border: 2px solid #E9E2D2; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 44px; line-height: 1">Аа</div>
+<div style="font-size: 13px; font-weight: 700">Manrope · текст, состав</div>
+</div>
+</div>
+<div style="border-radius: 20px; background: {{ink}}; color: #FBF7EE; padding: 22px 24px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 30px; line-height: 1.1; color: {{accent}}">Кисло. Сыто. Без вздутия.</div>
+<div style="font-size: 14px; line-height: 1.5">Голос: дерзко, коротко, на «ты». Шутим про перекусы, не про диеты. Никаких «похудей к лету».</div>
+</div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C6F432","options":["#C6F432","#FF5A36","#FF8A00"]},"ink":{"editor":"color","default":"#2B1A4A","options":["#2B1A4A","#14213D","#3A2418"]},"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#C6F432', ink: this.props.ink ?? '#2B1A4A' };
+}
+}
+</script>
+</body>
+</html>

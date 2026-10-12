@@ -1,0 +1,51 @@
+/* fibby — дизайн-токены v3 */
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap');
+
+:root {
+  /* бренд */
+  --fb-brand: #0F3B2E;
+  --fb-brand-deep: #0A2C22;
+  --fb-accent: #D6F36B;      /* только кнопки, выделенное слово, бейдж «5 г» */
+  --fb-ink: #16181A;
+  --fb-ink-muted: #4A524D;
+  --fb-paper: #FFFFFF;
+  --fb-ice: #F3F6F1;
+  --fb-line: #E2E7E0;
+  --fb-eyebrow: #E3ECDD;
+
+  /* вкус по умолчанию — яблоко; переключается классом на <html> */
+  --fb-pack: #CFE8A9;
+  --fb-seal: #BCD993;
+  --fb-cube: #B9DE7E;
+  --fb-tint: #EEF5E3;
+
+  /* шрифты */
+  --fb-font: 'Onest', system-ui, sans-serif;
+  --fb-font-note: 'Caveat', cursive;
+  --fb-tracking-display: -0.05em;
+
+  /* формы */
+  --fb-r-pill: 999px;
+  --fb-r-card: 24px;
+  --fb-r-panel: 32px;
+  --fb-r-cube: 11px;
+
+  --fb-max: 1240px;
+  --fb-gutter: 24px;
+}
+
+.flavor-raspberry { --fb-pack: #F7C6D0; --fb-seal: #EDB0BD; --fb-cube: #F19AAE; --fb-tint: #FBEDF0; }
+.flavor-mango     { --fb-pack: #FFD99E; --fb-seal: #F5C97F; --fb-cube: #FFC56B; --fb-tint: #FFF4E2; }
+
+/* кубик-мармеладка: объём через внутренние тени */
+.fb-cube {
+  background: var(--fb-cube);
+  border-radius: var(--fb-r-cube);
+  box-shadow: inset -5px -7px 0 rgba(15, 59, 46, .12),
+              inset 5px 6px 0 rgba(255, 255, 255, .6),
+              0 16px 22px -10px rgba(15, 59, 46, .35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

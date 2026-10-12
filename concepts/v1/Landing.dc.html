@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>FIBBY — лендинг предзаказа</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&amp;family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2B1A4A}a:hover{color:#000}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FBF7EE; color: {{ink}}; font-family: 'Manrope', system-ui, sans-serif">
+
+<div style="background: {{ink}}; color: #FBF7EE; text-align: center; padding: 10px 16px; font-size: 14px; font-weight: 700">Первая партия — [N] пачек. Предзаказ с ценой [−X%]</div>
+
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
+
+<nav style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: {{ink}}">
+<svg width="40" height="40" viewBox="0 0 74 74" aria-hidden="true"><path d="M37 5c17 0 31 11 31 29 0 20-14 35-31 35S6 54 6 34C6 16 20 5 37 5z" fill="{{ink}}"></path><path d="M14 40c6-7 11-7 16 0s11 7 16 0 10-7 15 0" fill="none" stroke="{{accent}}" stroke-width="6" stroke-linecap="round"></path></svg>
+<span style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: -0.04em">fibby</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 26px; font-weight: 700; font-size: 16px">
+<a href="#how" style="text-decoration: none; padding: 10px 0">Как работает</a>
+<a href="#sostav" style="text-decoration: none; padding: 10px 0">Состав</a>
+<a href="#faq" style="text-decoration: none; padding: 10px 0">Вопросы</a>
+<a href="#order" style="text-decoration: none; padding: 12px 22px; border-radius: 999px; background: {{ink}}; color: {{accent}}">Предзаказ</a>
+</div>
+</nav>
+
+<div id="top" style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px; padding: 40px 0 56px">
+
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #B79CFF; font-size: 14px; font-weight: 800">Новинка · мармелад с клетчаткой</div>
+<h1 style="margin: 0; font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: clamp(2.6rem, 5.6vw, 4.6rem); line-height: 1.02; letter-spacing: -0.03em">Кисло.<br>Сыто.<br><span style="background: {{accent}}; padding: 0 12px; border-radius: 16px">Без вздутия.</span></h1>
+<p style="margin: 0; font-size: 1.2rem; line-height: 1.55; max-width: 34rem">5 г клетчатки из псиллиума в порции — как тарелка овощей, только в кислом мармеладе. Без сахарных спиртов, от которых пучит.</p>
+
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<div id="order" style="display: flex; flex-direction: column; gap: 8px; max-width: 34rem">
+<label for="lead" style="font-size: 14px; font-weight: 800">E-mail или Telegram — напишем, когда партия будет готова</label>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<input id="lead" type="text" placeholder="@username или почта" value="{{ lead }}" onChange="{{ onLead }}" style="flex: 1 1 240px; min-width: 0; height: 56px; box-sizing: border-box; padding: 0 18px; border-radius: 16px; border: 2px solid {{ink}}; background: #FFFFFF; font: inherit; font-size: 16px; color: {{ink}}">
+<button type="button" onClick="{{ submit }}" style="height: 56px; padding: 0 26px; border-radius: 16px; border: 0; background: {{ink}}; color: {{accent}}; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer">Хочу первым</button>
+</div>
+<div style="font-size: 13px">Без предоплаты. Только уведомление о старте.</div>
+</div>
+</sc-if>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div style="max-width: 34rem; padding: 18px 22px; border-radius: 18px; background: {{accent}}; font-weight: 800; font-size: 17px">Готово! Ты в списке первой партии.</div>
+</sc-if>
+</div>
+
+<div style="flex: 1 1 360px; min-width: 0; display: flex; justify-content: center">
+<div style="position: relative; width: 340px; max-width: 100%; height: 460px">
+<div style="position: absolute; left: 20px; top: 40px; width: 300px; height: 400px; border-radius: 50%; background: {{accent}}"></div>
+<div style="position: absolute; left: 60px; top: 10px; width: 220px; height: 420px; display: flex; flex-direction: column; transform: rotate(-6deg); filter: drop-shadow(0 20px 26px rgba(43,26,74,0.3))">
+<div style="height: 22px; background: #241540; border-radius: 8px 8px 0 0"></div>
+<div style="height: 5px; background: {{accent}}"></div>
+<div style="flex-grow: 1; background: {{ink}}; border-radius: 0 0 22px 22px; padding: 22px 18px; color: #FBF7EE; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 9px; font-weight: 800; letter-spacing: 0.14em">МАРМЕЛАД С КЛЕТЧАТКОЙ</div>
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 50px; line-height: 1; letter-spacing: -0.05em; color: {{accent}}">fibby</div>
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 13px; line-height: 1.2">Кисло. Сыто.<br>Без вздутия.</div>
+<div style="margin-top: 14px; width: 92px; height: 92px; border-radius: 50%; background: {{accent}}; color: {{ink}}; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-8deg)">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 32px; line-height: 0.9">5 г</div>
+<div style="font-size: 9px; font-weight: 800; text-align: center">клетчатки</div>
+</div>
+</div>
+</div>
+<div style="position: absolute; right: 0; bottom: 30px; width: 86px; height: 80px; border-radius: 48% 52% 44% 56% / 55% 50% 50% 45%; background: #FF4F7B; transform: rotate(18deg)"></div>
+<div style="position: absolute; left: 6px; bottom: 60px; width: 60px; height: 56px; border-radius: 52% 48% 56% 44% / 50% 55% 45% 50%; background: #B79CFF"></div>
+</div>
+</div>
+
+</div>
+
+<div id="how" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding-bottom: 64px">
+<div style="border-radius: 22px; background: #FFFFFF; border: 2px solid #E9E2D2; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 34px">5 г</div>
+<div style="font-weight: 800; font-size: 17px">клетчатки в порции</div>
+<div style="font-size: 15px; line-height: 1.5">Псиллиум набухает и даёт чувство сытости между приёмами еды.</div>
+</div>
+<div style="border-radius: 22px; background: #FFFFFF; border: 2px solid #E9E2D2; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 34px">0</div>
+<div style="font-weight: 800; font-size: 17px">мальтита и сорбита</div>
+<div style="font-size: 15px; line-height: 1.5">Сахарные спирты — главная причина вздутия от «полезных» сладостей. У нас их нет.</div>
+</div>
+<div style="border-radius: 22px; background: {{ink}}; color: #FBF7EE; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 34px; color: {{accent}}">[__]</div>
+<div style="font-weight: 800; font-size: 17px">ккал в порции</div>
+<div style="font-size: 15px; line-height: 1.5">Заполним после тестовой партии на фабрике.</div>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C6F432","options":["#C6F432","#FF5A36","#FF8A00"]},"ink":{"editor":"color","default":"#2B1A4A","options":["#2B1A4A","#14213D","#3A2418"]},"$preview":{"width":1440,"height":980}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { lead: '', sent: false };
+}
+renderVals() {
+return {
+accent: this.props.accent ?? '#C6F432',
+ink: this.props.ink ?? '#2B1A4A',
+lead: this.state.lead,
+sent: this.state.sent,
+notSent: !this.state.sent,
+onLead: (e) => this.setState({ lead: e.target.value }),
+submit: () => { if (this.state.lead.trim()) this.setState({ sent: true }); }
+};
+}
+}
+</script>
+</body>
+</html>

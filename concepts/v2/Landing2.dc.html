@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>fibby — мармелад с клетчаткой</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@1,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#16181A}a:hover{color:#000}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-18px) rotate(-2deg)}}
+@keyframes orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FAFAF7; color: #16181A; font-family: 'Onest', system-ui, sans-serif">
+
+<div style="background: #16181A; color: #FAFAF7; overflow: hidden; white-space: nowrap; font-size: 14px; font-weight: 500">
+<div style="display: inline-flex; gap: 48px; padding: 11px 0; animation: marquee 28s linear infinite">
+<span>Предзаказ первой партии открыт</span><span>·</span><span>Скидка предзаказчикам [−X%]</span><span>·</span><span>Доставка по России</span><span>·</span><span>Предзаказ первой партии открыт</span><span>·</span><span>Скидка предзаказчикам [−X%]</span><span>·</span><span>Доставка по России</span><span>·</span>
+</div>
+</div>
+
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
+
+<nav style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0">
+<a href="#top" style="display: flex; align-items: flex-end; text-decoration: none; color: #16181A"><span style="font-weight: 700; font-size: 34px; line-height: 0.9; letter-spacing: -0.07em">fibby</span><span style="width: 9px; height: 9px; border-radius: 3px; background: #F7C6D0; margin: 0 0 3px 3px; display: inline-block"></span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; font-size: 15px; font-weight: 500">
+<a href="#how" style="text-decoration: none; padding: 12px 0">Как работает</a>
+<a href="#sostav" style="text-decoration: none; padding: 12px 0">Состав</a>
+<a href="#price" style="text-decoration: none; padding: 12px 0">Цены</a>
+<a href="#faq" style="text-decoration: none; padding: 12px 0">Вопросы</a>
+<a href="#price" style="text-decoration: none; padding: 12px 22px; border-radius: 999px; background: #16181A; color: #FAFAF7">Предзаказ</a>
+</div>
+</nav>
+
+<section id="top" style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; padding: 48px 0 72px">
+<div style="flex: 1 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<div style="display: inline-flex; align-self: flex-start; padding: 8px 14px; border-radius: 999px; background: #EDEAE2; font-size: 14px; font-weight: 500">Мармелад с клетчаткой из псиллиума</div>
+<h1 style="margin: 0; font-weight: 600; font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: 0.98; letter-spacing: -0.05em">Сытость дольше, чем <span style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; letter-spacing: -0.02em">перекус.</span></h1>
+<p style="margin: 0; font-size: 1.2rem; line-height: 1.55; color: #3B3E42; max-width: 32rem">5 г клетчатки в каждой порции. Кисло-сладкий вкус, мягкая текстура и никаких сахарных спиртов.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#price" style="text-decoration: none; padding: 17px 28px; border-radius: 999px; background: #16181A; color: #FAFAF7; font-weight: 600; font-size: 16px">Оставить предзаказ</a>
+<a href="#how" style="text-decoration: none; padding: 15px 26px; border-radius: 999px; border: 2px solid #16181A; font-weight: 600; font-size: 16px">Как это работает</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 8px; font-size: 14px; color: #3B3E42">
+<div><span style="font-weight: 700; color: #16181A">5 г</span> клетчатки</div>
+<div><span style="font-weight: 700; color: #16181A">0</span> сахарных спиртов</div>
+<div><span style="font-weight: 700; color: #16181A">[__]</span> ккал в порции</div>
+<div>Сделано в России</div>
+</div>
+</div>
+
+<div style="flex: 1 1 420px; min-width: 0; display: flex; justify-content: center">
+<div style="position: relative; width: 480px; max-width: 100%; height: 540px">
+<div style="position: absolute; left: 50%; top: 50%; width: 440px; height: 440px; margin: -220px 0 0 -220px; border-radius: 50%; background: #F3E3E6"></div>
+<div style="position: absolute; left: 50%; top: 50%; width: 500px; height: 500px; margin: -250px 0 0 -250px; animation: orbit 40s linear infinite">
+<div style="position: absolute; left: 30px; top: 120px; width: 48px; height: 48px; border-radius: 13px; background: #F7C6D0; box-shadow: inset -5px -7px 0 rgba(22,24,26,0.08), inset 5px 6px 0 rgba(255,255,255,0.65), 0 16px 20px -10px rgba(22,24,26,0.3)"></div>
+<div style="position: absolute; right: 20px; top: 260px; width: 40px; height: 40px; border-radius: 11px; background: #CFE8A9; box-shadow: inset -5px -7px 0 rgba(22,24,26,0.08), inset 5px 6px 0 rgba(255,255,255,0.65), 0 16px 20px -10px rgba(22,24,26,0.3)"></div>
+<div style="position: absolute; left: 190px; bottom: 6px; width: 36px; height: 36px; border-radius: 10px; background: #FFD99E; box-shadow: inset -4px -6px 0 rgba(22,24,26,0.08), inset 4px 5px 0 rgba(255,255,255,0.65), 0 16px 20px -10px rgba(22,24,26,0.3)"></div>
+</div>
+<div style="position: absolute; left: 50%; top: 40px; width: 270px; height: 460px; margin-left: -135px; display: flex; flex-direction: column; animation: bob 7s ease-in-out infinite; filter: drop-shadow(0 40px 36px rgba(22,24,26,0.22))">
+<div style="height: 26px; background: #EDB0BD; border-radius: 12px 12px 0 0; border-bottom: 2px dashed rgba(22,24,26,0.15)"></div>
+<div style="flex-grow: 1; background: #F7C6D0; border-radius: 0 0 28px 28px; padding: 24px 24px 22px; display: flex; flex-direction: column">
+<div style="font-size: 11px; font-weight: 500">мармелад с клетчаткой</div>
+<div style="display: flex; align-items: flex-end; margin-top: 14px"><span style="font-weight: 700; font-size: 72px; line-height: 0.85; letter-spacing: -0.07em">fibby</span><span style="width: 14px; height: 14px; border-radius: 4px; background: #16181A; margin: 0 0 6px 5px; display: inline-block"></span></div>
+<div style="margin-top: auto; display: flex; align-items: baseline; gap: 8px"><span style="font-weight: 600; font-size: 54px; line-height: 1; letter-spacing: -0.05em">5 г</span><span style="font-size: 12px; font-weight: 500; line-height: 1.2">клетчатки<br>в порции</span></div>
+<div style="height: 1px; background: rgba(22,24,26,0.2); margin: 14px 0 10px"></div>
+<div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 500"><span>малина</span><span>[__] г</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<div style="border-top: 1px solid #E6E3DA; border-bottom: 1px solid #E6E3DA; overflow: hidden; white-space: nowrap">
+<div style="display: inline-flex; gap: 56px; padding: 18px 0; font-size: 18px; font-weight: 500; color: #3B3E42; animation: marquee 34s linear infinite">
+<span>Псиллиум из подорожника</span><span>Без мальтита и сорбита</span><span>Мягкая текстура</span><span>Начни с одной порции</span><span>Псиллиум из подорожника</span><span>Без мальтита и сорбита</span><span>Мягкая текстура</span><span>Начни с одной порции</span>
+</div>
+</div>
+
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px">
+
+<section id="how" style="padding: 96px 0 40px; display: flex; flex-direction: column; gap: 40px">
+<h2 style="margin: 0; font-weight: 600; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.045em; max-width: 46rem">Клетчатка, которую <span style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500">хочется</span> есть.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<div style="border-radius: 28px; background: #FFFFFF; border: 1px solid #E6E3DA; padding: 30px; display: flex; flex-direction: column; gap: 12px; min-height: 220px">
+<div style="font-size: 14px; color: #55585C">01</div>
+<div style="font-weight: 600; font-size: 24px; letter-spacing: -0.03em">Набухает</div>
+<div style="font-size: 16px; line-height: 1.55; color: #3B3E42">Псиллиум впитывает воду и даёт объём — отсюда чувство сытости.</div>
+</div>
+<div style="border-radius: 28px; background: #FFFFFF; border: 1px solid #E6E3DA; padding: 30px; display: flex; flex-direction: column; gap: 12px; min-height: 220px">
+<div style="font-size: 14px; color: #55585C">02</div>
+<div style="font-weight: 600; font-size: 24px; letter-spacing: -0.03em">Без сахарных спиртов</div>
+<div style="font-size: 16px; line-height: 1.55; color: #3B3E42">Мальтит и сорбит часто дают дискомфорт в «полезных» сладостях. Мы их не используем.</div>
+</div>
+<div style="border-radius: 28px; background: #FFFFFF; border: 1px solid #E6E3DA; padding: 30px; display: flex; flex-direction: column; gap: 12px; min-height: 220px">
+<div style="font-size: 14px; color: #55585C">03</div>
+<div style="font-weight: 600; font-size: 24px; letter-spacing: -0.03em">Без шейкера</div>
+<div style="font-size: 16px; line-height: 1.55; color: #3B3E42">Не нужно разводить порошок. Пачка в кармане, порция — в любой момент.</div>
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 0; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-weight: 600; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.045em">Для моментов, когда тянет перекусить.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 12px"><div style="height: 320px; border-radius: 24px; background: #EDEAE2; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #55585C">[фото]</div><div style="font-weight: 600; font-size: 18px">Офис, 16:00</div></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><div style="height: 320px; border-radius: 24px; background: #E4EED5; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #55585C">[фото]</div><div style="font-weight: 600; font-size: 18px">После тренировки</div></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><div style="height: 320px; border-radius: 24px; background: #F3E3E6; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #55585C">[фото]</div><div style="font-weight: 600; font-size: 18px">Вечер, сериал</div></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><div style="height: 320px; border-radius: 24px; background: #F6E8CF; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #55585C">[фото]</div><div style="font-weight: 600; font-size: 18px">В дороге</div></div>
+</div>
+</section>
+
+<section id="sostav" style="padding: 56px 0; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-weight: 600; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.045em">Состав <span style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500">по-честному.</span></h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3B3E42; max-width: 30rem">Обычный мармелад не пишет, сколько в нём клетчатки. Мы пишем — крупно, на лицевой стороне.</p>
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 30rem">
+<div style="display: flex; justify-content: space-between; padding: 16px 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E6E3DA"><span style="font-weight: 600">Псиллиум</span><span>5 г клетчатки</span></div>
+<div style="display: flex; justify-content: space-between; padding: 16px 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E6E3DA"><span style="font-weight: 600">Фруктовое пюре</span><span>[__] %</span></div>
+<div style="display: flex; justify-content: space-between; padding: 16px 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E6E3DA"><span style="font-weight: 600">Подсластитель</span><span>[уточнить с фабрикой]</span></div>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; border: 2px solid #16181A; border-radius: 20px; background: #FFFFFF; padding: 24px 26px; display: flex; flex-direction: column">
+<div style="font-weight: 700; font-size: 26px; letter-spacing: -0.03em">Пищевая ценность</div>
+<div style="font-size: 14px; color: #3B3E42; padding: 6px 0 12px; border-bottom: 8px solid #16181A">Порция: [__] шт ([__] г) · в упаковке [__] порций</div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #C9C6BE; font-weight: 600"><span>Энергетическая ценность</span><span>[__] ккал</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #C9C6BE"><span>Белки</span><span>[__] г</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #C9C6BE"><span>Жиры</span><span>[__] г</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #C9C6BE"><span>Углеводы</span><span>[__] г</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0 10px 20px; border-bottom: 1px solid #C9C6BE"><span>в т. ч. сахара</span><span>[__] г</span></div>
+<div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 8px solid #16181A; font-weight: 700"><span>Пищевые волокна</span><span>5 г</span></div>
+<div style="font-size: 13px; line-height: 1.5; color: #3B3E42; padding-top: 12px">Состав: [заполнить после тестовой партии]. Запивать водой. Начинать с одной порции.</div>
+</div>
+</section>
+
+<section style="padding: 56px 0; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-weight: 600; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.045em">Почему не порошок?</h2>
+<div style="overflow-x: auto; border-radius: 24px; border: 1px solid #E6E3DA; background: #FFFFFF">
+<table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 16px">
+<thead>
+<tr>
+<th style="text-align: left; padding: 20px 24px; font-weight: 500; color: #55585C"></th>
+<th style="text-align: left; padding: 20px 24px; background: #F7C6D0; font-weight: 700">fibby</th>
+<th style="text-align: left; padding: 20px 24px; font-weight: 600">Псиллиум-порошок</th>
+<th style="text-align: left; padding: 20px 24px; font-weight: 600">Капсулы</th>
+<th style="text-align: left; padding: 20px 24px; font-weight: 600">Обычный мармелад</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #E6E3DA"><td style="padding: 18px 24px; color: #55585C">Клетчатка в порции</td><td style="padding: 18px 24px; background: #FBEAEE; font-weight: 600">5 г</td><td style="padding: 18px 24px">5 г</td><td style="padding: 18px 24px">горсть капсул на 5 г</td><td style="padding: 18px 24px">почти 0</td></tr>
+<tr style="border-top: 1px solid #E6E3DA"><td style="padding: 18px 24px; color: #55585C">Как принимать</td><td style="padding: 18px 24px; background: #FBEAEE; font-weight: 600">съел — и всё</td><td style="padding: 18px 24px">развести и быстро выпить</td><td style="padding: 18px 24px">запивать водой</td><td style="padding: 18px 24px">—</td></tr>
+<tr style="border-top: 1px solid #E6E3DA"><td style="padding: 18px 24px; color: #55585C">Вкус</td><td style="padding: 18px 24px; background: #FBEAEE; font-weight: 600">кисло-сладкий</td><td style="padding: 18px 24px">безвкусный гель</td><td style="padding: 18px 24px">никакой</td><td style="padding: 18px 24px">сладкий</td></tr>
+<tr style="border-top: 1px solid #E6E3DA"><td style="padding: 18px 24px; color: #55585C">С собой</td><td style="padding: 18px 24px; background: #FBEAEE; font-weight: 600">пачка в кармане</td><td style="padding: 18px 24px">банка и шейкер</td><td style="padding: 18px 24px">баночка</td><td style="padding: 18px 24px">пачка</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="padding: 56px 0; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-weight: 600; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.045em">Смотри, как пробуют.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+<div style="aspect-ratio: 9 / 16; border-radius: 22px; background: #EDEAE2; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #55585C">[видео блогера]</div>
+<div style="aspect-ratio: 9 / 16; border-radius: 22px; background: #EDEAE2; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #55585C">[видео блогера]</div>
+<div style="aspect-ratio: 9 / 16; border-radius: 22px; background: #EDEAE2; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #55585C">[видео блогера]</div>
+<div style="aspect-ratio: 9 / 16; border-radius: 22px; background: #EDEAE2; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #55585C">[видео блогера]</div>
+</div>
+</section>
+
+<section id="price" style="padding: 56px 0; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px">
+<h2 style="margin: 0; font-weight: 600; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.045em">Выбери запас.</h2>
+<div style="display: inline-flex; padding: 5px; border-radius: 999px; background: #EDEAE2" role="group" aria-label="Тип покупки">
+<button type="button" onClick="{{ pickSub }}" style="{{ subBtn }}">Подписка [−X%]</button>
+<button type="button" onClick="{{ pickOnce }}" style="{{ onceBtn }}">Разово</button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<sc-for list="{{ plans }}" as="plan" hint-placeholder-count="2">
+<div style="{{ plan.cardStyle }}">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<div style="font-weight: 600; font-size: 24px; letter-spacing: -0.03em">{{ plan.name }}</div>
+<sc-if value="{{ plan.hit }}" hint-placeholder-val="{{ false }}"><div style="padding: 6px 12px; border-radius: 999px; background: #F7C6D0; color: #16181A; font-size: 13px; font-weight: 600">Хит</div></sc-if>
+</div>
+<div style="font-size: 15px; opacity: 0.8">{{ plan.desc }}</div>
+<div style="font-weight: 600; font-size: 48px; letter-spacing: -0.04em; line-height: 1">{{ plan.price }}</div>
+<div style="font-size: 14px; opacity: 0.8">{{ mode }}</div>
+<button type="button" onClick="{{ plan.pick }}" style="{{ plan.btnStyle }}">{{ plan.btnLabel }}</button>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section id="faq" style="padding: 56px 0; display: flex; flex-wrap: wrap; gap: 40px">
+<h2 style="flex: 1 1 300px; margin: 0; font-weight: 600; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.045em">Прямые ответы.</h2>
+<div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column">
+<sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+<div style="border-top: 1px solid #D9D5CB">
+<button type="button" onClick="{{ f.toggle }}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; background: none; border: 0; font: inherit; font-size: 19px; font-weight: 600; color: #16181A; text-align: left; cursor: pointer">
+<span>{{ f.q }}</span><span style="font-size: 26px; font-weight: 400">{{ f.sign }}</span>
+</button>
+<sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 0 0 22px; font-size: 16px; line-height: 1.6; color: #3B3E42; max-width: 40rem">{{ f.a }}</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 40px 0 96px">
+<div style="border-radius: 36px; background: #16181A; color: #FAFAF7; padding: clamp(32px, 6vw, 72px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="font-weight: 600; font-size: clamp(2rem, 4.4vw, 3.8rem); line-height: 1; letter-spacing: -0.05em">Перекус, который <span style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500">работает.</span></div>
+<div style="font-size: 17px; opacity: 0.85">Оставь контакт — напишем, когда первая партия будет готова. Без предоплаты.</div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0">
+<sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="lead2" style="font-size: 14px; font-weight: 500; opacity: 0.85">E-mail или Telegram</label>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<input id="lead2" type="text" placeholder="@username или почта" value="{{ lead }}" onChange="{{ onLead }}" style="flex: 1 1 220px; min-width: 0; height: 56px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; border: 0; background: #FAFAF7; font: inherit; font-size: 16px; color: #16181A">
+<button type="button" onClick="{{ submit }}" style="height: 56px; padding: 0 28px; border-radius: 999px; border: 0; background: #F7C6D0; color: #16181A; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer">Хочу первым</button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 20px 24px; border-radius: 20px; background: #F7C6D0; color: #16181A; font-weight: 600; font-size: 17px">Готово — ты в списке первой партии.</div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding: 28px 0 40px; border-top: 1px solid #E6E3DA; font-size: 14px; color: #55585C">
+<div>© fibby, 2026 · ИП [ФИО], ИНН [__]</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px"><a href="#top">Политика конфиденциальности</a><a href="#top">Оферта</a><a href="#top">Telegram</a></div>
+</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5200}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { sub: true, plan: '3', open: 0, lead: '', sent: false };
+}
+renderVals() {
+const s = this.state;
+const pill = 'padding: 10px 18px; border-radius: 999px; border: 0; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; min-height: 44px; ';
+const on = pill + 'background: #16181A; color: #FAFAF7;';
+const off = pill + 'background: transparent; color: #16181A;';
+const planDefs = [
+{ id: '1', name: '1 пачка', desc: '[__] порций · на [__] дней', price: '[__] ₽', hit: false },
+{ id: '3', name: '3 пачки', desc: '[__] порций · три вкуса', price: '[__] ₽', hit: true }
+];
+const plans = planDefs.map((p) => {
+const sel = s.plan === p.id;
+return Object.assign({}, p, {
+cardStyle: 'border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 14px; ' + (sel ? 'background: #16181A; color: #FAFAF7;' : 'background: #FFFFFF; color: #16181A; border: 1px solid #E6E3DA;'),
+btnStyle: 'margin-top: 8px; height: 54px; border-radius: 999px; border: 0; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer; ' + (sel ? 'background: #F7C6D0; color: #16181A;' : 'background: #16181A; color: #FAFAF7;'),
+btnLabel: sel ? 'Выбрано · предзаказ' : 'Выбрать',
+pick: () => this.setState({ plan: p.id })
+});
+});
+const faqDefs = [
+{ q: 'Что такое псиллиум?', a: 'Оболочка семян подорожника — растворимая клетчатка, которая набухает в воде. Её давно продают в аптеках и магазинах здорового питания в виде порошка.' },
+{ q: 'Сколько можно в день?', a: 'Начни с одной порции и запивай водой. Точную суточную рекомендацию укажем на упаковке после согласования рецептуры с технологом.' },
+{ q: 'Не будет вздутия?', a: 'Мы не используем мальтит и сорбит — частую причину дискомфорта в сладостях без сахара. Клетчатку организму лучше добавлять постепенно, поэтому и советуем начинать с одной порции.' },
+{ q: 'Это БАД?', a: 'Нет, это мармелад — пищевой продукт. [Уточним статус и декларацию после запуска производства.]' },
+{ q: 'Когда доставка?', a: 'Первая партия — [месяц]. Предзаказчики получают её первыми и со скидкой.' }
+];
+const faqs = faqDefs.map((f, i) => Object.assign({}, f, {
+open: s.open === i,
+sign: s.open === i ? '−' : '+',
+toggle: () => this.setState({ open: s.open === i ? -1 : i })
+}));
+return {
+subBtn: s.sub ? on : off,
+onceBtn: s.sub ? off : on,
+pickSub: () => this.setState({ sub: true }),
+pickOnce: () => this.setState({ sub: false }),
+mode: s.sub ? 'по подписке, раз в месяц · отмена в любой момент' : 'разовая покупка',
+plans: plans,
+faqs: faqs,
+lead: s.lead,
+sent: s.sent,
+notSent: !s.sent,
+onLead: (e) => this.setState({ lead: e.target.value }),
+submit: () => { if (s.lead.trim()) this.setState({ sent: true }); }
+};
+}
+}
+</script>
+</body>
+</html>
