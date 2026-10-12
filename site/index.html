@@ -98,13 +98,14 @@
           </div>
           <div class="pack__face tintable">
             <div class="pack__logo"><span class="logo__word">fibby</span><span class="logo__cube"></span></div>
-            <div class="pack__sub">мармелад с клетчаткой · <span data-flavor-name>зелёное яблоко</span></div>
+            <div class="pack__sub">мармелад с клетчаткой<br><span data-flavor-name>зелёное яблоко</span></div>
             <div class="pack__badge"><b>5 г</b><span>клетчатки<br>в порции</span></div>
           </div>
         </div>
 
-        <div class="pack-stage__hint note" aria-hidden="true">переключи вкус ↓</div>
       </div>
+
+      <div class="pack-stage__hint note" aria-hidden="true">переключи вкус ↓</div>
 
       <div class="flavors" role="group" aria-label="Вкус">
         <button type="button" class="flavor" data-flavor="apple" aria-pressed="true">
@@ -446,6 +447,10 @@
           <a href="privacy.html">политикой конфиденциальности</a> (152-ФЗ).</span>
       </label>
 
+      <p class="promo-badge" data-promo-badge hidden>
+        Промокод <b data-promo-code></b> учтён — скидка предзаказчика [−X%].
+      </p>
+
       <p class="form__summary">Выбрано: <span data-summary>3 пачки · яблоко · по подписке</span></p>
       <p class="form__error" role="alert" hidden></p>
 
@@ -484,5 +489,16 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+<script>
+  // приёмник заявок и счётчик метрики подключаются на этапе 6
+  window.FB_LEAD_ENDPOINT = null;
+  window.FB_METRIKA_ID = null;
+  // кадры 3D-пачки: заполнить, когда придёт рендер (см. assets/frames/README.md)
+  window.FB_FRAMES = null;
+</script>
+<script type="module" src="assets/js/main.js" defer></script>
 </body>
 </html>

@@ -46,11 +46,12 @@ a { color: var(--fb-brand); }
   padding-right: var(--fb-gutter);
 }
 
-.section { padding: 72px 0; }
-.section--tight { padding: 56px 0; }
+.section { padding: 110px 0; }
+.section--tight { padding: 84px 0; }
 
 @media (max-width: 720px) {
-  .section { padding: 52px 0; }
+  .section { padding: 64px 0; }
+  .section--tight { padding: 56px 0; }
   :root { --fb-gutter: 18px; }
 }
 
@@ -62,11 +63,11 @@ a { color: var(--fb-brand); }
   letter-spacing: var(--fb-tracking-display);
   line-height: 1.0;
 }
-.h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: .98; }
-.h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); line-height: 1.02; letter-spacing: -0.045em; }
+.h1 { font-size: clamp(2.6rem, 6.6vw, 5.4rem); line-height: .95; }
+.h2 { font-size: clamp(2rem, 4.8vw, 3.5rem); line-height: 1.02; letter-spacing: -0.045em; }
 .h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); letter-spacing: -0.035em; }
 
-.lead { margin: 0; font-size: clamp(1rem, 1.6vw, 1.15rem); line-height: 1.6; color: var(--fb-ink-muted); max-width: 34rem; }
+.lead { margin: 0; font-size: clamp(1.02rem, 1.6vw, 1.2rem); line-height: 1.62; color: var(--fb-ink-muted); max-width: 34rem; }
 .is-dark .lead { color: rgba(255,255,255,.86); }
 
 .accent { color: var(--fb-accent); }
@@ -93,8 +94,8 @@ a { color: var(--fb-brand); }
 }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
-.btn--accent { background: var(--fb-accent); color: var(--fb-ink); }
-.btn--brand { background: var(--fb-brand); color: #fff; }
+.btn--accent { background: var(--fb-accent); color: var(--fb-ink); box-shadow: 0 10px 24px -12px rgba(214, 243, 107, .9); }
+.btn--brand { background: var(--fb-brand); color: #fff; box-shadow: 0 12px 26px -14px rgba(15, 59, 46, .8); }
 .btn--ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.5); min-height: 50px; }
 .btn--sm { min-height: 44px; padding: 0 22px; font-size: 15px; }
 .btn--block { width: 100%; }
@@ -181,8 +182,8 @@ a { color: var(--fb-brand); }
 .pack-stage__canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 
 .pack-stage__hint {
-  position: absolute; right: 22px; bottom: 18px;
-  color: var(--fb-accent); transform: rotate(-5deg);
+  align-self: flex-end; margin-right: 8px;
+  color: var(--fb-accent); transform: rotate(-4deg);
 }
 
 /* CSS-заглушка пачки */
@@ -203,7 +204,7 @@ a { color: var(--fb-brand); }
 .pack__logo { display: flex; align-items: flex-end; }
 .pack__logo .logo__word { font-size: clamp(32px, 4.4vw, 54px); }
 .pack__logo .logo__cube { width: 10px; height: 10px; background: var(--fb-brand); border: 0; margin: 0 0 5px 4px; }
-.pack__sub { font-size: 11px; font-weight: 700; margin-top: 6px; }
+.pack__sub { font-size: clamp(9px, 1vw, 11px); font-weight: 700; line-height: 1.25; margin-top: 6px; }
 .pack__badge { margin-top: auto; display: flex; align-items: center; gap: 10px; }
 .pack__badge b {
   padding: 7px 12px; border-radius: var(--fb-r-pill);
@@ -219,9 +220,10 @@ a { color: var(--fb-brand); }
 
 /* переключатель вкуса */
 .flavors { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+@media (max-width: 420px) { .flavor { font-size: 14px; } .flavors { gap: 6px; } }
 .flavor {
   display: inline-flex; align-items: center; gap: 8px;
-  min-height: 44px; padding: 0 18px; border-radius: var(--fb-r-pill);
+  min-height: 44px; padding: 0 clamp(12px, 3.5vw, 18px); border-radius: var(--fb-r-pill);
   background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.35);
   font-size: 15px; font-weight: 700;
   transition: background-color .25s ease, color .25s ease, border-color .25s ease;
@@ -467,3 +469,40 @@ a { color: var(--fb-brand); }
   0%, 100% { transform: translateX(-50%) translateY(0) rotate(-3deg); }
   50% { transform: translateX(-50%) translateY(-16px) rotate(-1deg); }
 }
+
+
+/* ---------- этап 4: анимации ---------- */
+
+/* заголовок проявляется построчно из-под маски */
+.mask { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .06em; }
+.mask__in { display: inline-block; }
+.js:not(.reduced) .mask__in { transform: translateY(110%); }
+
+/* шапка приподнимается тенью, когда страница уехала */
+.header { transition: box-shadow .3s ease, background-color .3s ease; }
+.header.is-scrolled { box-shadow: 0 10px 30px -22px rgba(15, 59, 46, .55); }
+
+/* сцена пачки: объём для поворота */
+.pack-stage { perspective: 1100px; }
+.pack { transform-style: preserve-3d; will-change: transform; }
+.pack-stage.has-sequence .pack,
+.pack-stage.has-sequence .cube-float { display: none; }
+
+/* когда анимациями управляет GSAP, CSS-кейфреймы отключаем,
+   чтобы два источника не спорили за transform */
+.js:not(.reduced) .pack { animation: none; transform: translateX(-50%) rotate(-3deg); }
+
+/* FAQ: раскрытие анимируется по высоте */
+.faq__a { overflow: hidden; }
+
+/* промокод блогера */
+.promo-badge {
+  margin: 0; align-self: flex-start;
+  padding: 10px 16px; border-radius: var(--fb-r-pill);
+  background: rgba(214, 243, 107, .14); border: 1px solid rgba(214, 243, 107, .4);
+  color: #fff; font-size: 13px; font-weight: 600;
+}
+.promo-badge b { color: var(--fb-accent); letter-spacing: .04em; }
+
+/* показываем, что контент едет мягко, но без прыжков на стыке строк */
+.marquee__track { will-change: transform; }
