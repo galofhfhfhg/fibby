@@ -6,6 +6,7 @@
 import { initControls, setFlavor } from './flavor.js';
 import { initForm } from './form.js';
 import { initPackScene } from './pack-canvas.js';
+import { initMetrika, initTelegramLinks, initLegal } from './integrations.js';
 
 const gsap = window.gsap;
 const ScrollTrigger = window.ScrollTrigger;
@@ -247,6 +248,9 @@ function initHeader() {
 
 /* ---------- старт ---------- */
 
+initMetrika();
+initTelegramLinks();
+initLegal();
 initControls();
 initForm();
 initFaq();

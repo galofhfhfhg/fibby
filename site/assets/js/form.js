@@ -134,7 +134,10 @@ async function send(payload) {
     try {
       const res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        // text/plain — это «простой» запрос: браузер не делает
+        // предварительный OPTIONS, на который Apps Script не отвечает.
+        // Скрипт всё равно читает тело как JSON.
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload)
       });
       if (res.ok) return true;

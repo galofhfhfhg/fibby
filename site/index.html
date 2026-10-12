@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/styles.css">
+<script src="assets/js/config.js"></script>
 </head>
 <body>
 
@@ -480,7 +481,7 @@
 <!-- 14. подвал -->
 <footer class="footer">
   <div class="wrap footer__inner">
-    <div>© fibby, 2026 · ИП [ФИО], ИНН [__]</div>
+    <div>© fibby, 2026 · <span data-legal="entity">ИП [ФИО]</span>, ИНН <span data-legal="inn">[__]</span></div>
     <div class="footer__links">
       <a href="privacy.html">Политика конфиденциальности</a>
       <a href="#">Оферта</a>
@@ -492,13 +493,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
-<script>
-  // приёмник заявок и счётчик метрики подключаются на этапе 6
-  window.FB_LEAD_ENDPOINT = null;
-  window.FB_METRIKA_ID = null;
-  // кадры 3D-пачки: заполнить, когда придёт рендер (см. assets/frames/README.md)
-  window.FB_FRAMES = null;
-</script>
 <script type="module" src="assets/js/main.js" defer></script>
 </body>
 </html>

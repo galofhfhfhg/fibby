@@ -506,3 +506,18 @@ a { color: var(--fb-brand); }
 
 /* показываем, что контент едет мягко, но без прыжков на стыке строк */
 .marquee__track { will-change: transform; }
+
+/* ---------- юридические страницы ---------- */
+
+.legal { max-width: 46rem; }
+.legal .h2 { margin: 18px 0 8px; }
+.legal .h3 { margin: 38px 0 10px; }
+.legal p, .legal li { color: var(--fb-ink-muted); line-height: 1.65; }
+.legal ul { padding-left: 22px; }
+.legal li { margin-bottom: 6px; }
+.legal__note {
+  padding: 16px 18px; border-radius: var(--fb-r-card);
+  background: var(--fb-ice); border: 1px solid var(--fb-line);
+  font-size: 14px;
+}
+.legal a[aria-disabled="true"], .footer a[aria-disabled="true"] { opacity: .5; cursor: default; }
